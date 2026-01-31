@@ -1,0 +1,85 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+enum SubscriptionPlan {
+  FREE
+  PREMIUM
+}
+
+enum PostStatus {
+  DRAFT
+  SCHEDULED
+  PUBLISHED
+  FAILED
+}
+
+model User {
+  id        String  @id @default(uuid())
+  email     String  @unique
+  password  String
+  firstName String?
+  lastName  String?
+  role      Role    @default(USER)
+
+  subscriptionStatus SubscriptionPlan @default(FREE)
+  subscriptionId     String? // Stripe/PayTech ID (optional for now)
+  stripeCustomerId   String?          @unique // Stripe customer ID
+
+  // LinkedIn OAuth
+  linkedinId             String? // LinkedIn Person URN
+  linkedinAccessToken    String? // LinkedIn OAuth Access Token
+  linkedinRefreshToken   String? // LinkedIn Refresh Token
+  linkedinTokenExpiresAt DateTime? // Token expiration date
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  posts        Post[]
+  subscription Subscription?
+}
+
+model Post {
+  id          String     @id @default(uuid())
+  content     String
+  status      PostStatus @default(DRAFT)
+  isPublished Boolean    @default(false)
+  linkedinId  String? // ID returned by LinkedIn API
+
+  scheduledAt DateTime? // When the post should be published
+  publishedAt DateTime? // When it was actually published
+
+  authorId String
+  author   User   @relation(fields: [authorId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Subscription {
+  id                 String           @id @default(uuid())
+  stripeId           String           @unique
+  status             SubscriptionPlan
+  currentPeriodStart DateTime
+  currentPeriodEnd   DateTime
+  cancelAtPeriodEnd  Boolean          @default(false)
+
+  userId String @unique
+  user   User   @relation(fields: [userId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
