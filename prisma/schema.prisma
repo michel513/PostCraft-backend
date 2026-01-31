@@ -39,6 +39,20 @@ model User {
   subscriptionId     String? // Stripe/PayTech ID (optional for now)
   stripeCustomerId   String?          @unique // Stripe customer ID
 
+  // App Auth Enhancements
+  refreshToken           String? // Hashed refresh token
+  isEmailVerified        Boolean   @default(false)
+  emailVerificationToken String?
+  passwordResetToken     String?
+  passwordResetExpires   DateTime?
+  twoFactorSecret        String?
+  isTwoFactorEnabled     Boolean   @default(false)
+
+  // Social IDs
+  googleId   String? @unique
+  githubId   String? @unique
+  facebookId String? @unique
+
   // LinkedIn OAuth
   linkedinId             String? // LinkedIn Person URN
   linkedinAccessToken    String? // LinkedIn OAuth Access Token

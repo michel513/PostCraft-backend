@@ -1137,6 +1137,13 @@ export namespace Prisma {
     subscriptionStatus: $Enums.SubscriptionPlan | null
     subscriptionId: string | null
     stripeCustomerId: string | null
+    refreshToken: string | null
+    isEmailVerified: boolean | null
+    emailVerificationToken: string | null
+    passwordResetToken: string | null
+    passwordResetExpires: Date | null
+    twoFactorSecret: string | null
+    isTwoFactorEnabled: boolean | null
     linkedinId: string | null
     linkedinAccessToken: string | null
     linkedinRefreshToken: string | null
@@ -1155,6 +1162,13 @@ export namespace Prisma {
     subscriptionStatus: $Enums.SubscriptionPlan | null
     subscriptionId: string | null
     stripeCustomerId: string | null
+    refreshToken: string | null
+    isEmailVerified: boolean | null
+    emailVerificationToken: string | null
+    passwordResetToken: string | null
+    passwordResetExpires: Date | null
+    twoFactorSecret: string | null
+    isTwoFactorEnabled: boolean | null
     linkedinId: string | null
     linkedinAccessToken: string | null
     linkedinRefreshToken: string | null
@@ -1173,6 +1187,13 @@ export namespace Prisma {
     subscriptionStatus: number
     subscriptionId: number
     stripeCustomerId: number
+    refreshToken: number
+    isEmailVerified: number
+    emailVerificationToken: number
+    passwordResetToken: number
+    passwordResetExpires: number
+    twoFactorSecret: number
+    isTwoFactorEnabled: number
     linkedinId: number
     linkedinAccessToken: number
     linkedinRefreshToken: number
@@ -1193,6 +1214,13 @@ export namespace Prisma {
     subscriptionStatus?: true
     subscriptionId?: true
     stripeCustomerId?: true
+    refreshToken?: true
+    isEmailVerified?: true
+    emailVerificationToken?: true
+    passwordResetToken?: true
+    passwordResetExpires?: true
+    twoFactorSecret?: true
+    isTwoFactorEnabled?: true
     linkedinId?: true
     linkedinAccessToken?: true
     linkedinRefreshToken?: true
@@ -1211,6 +1239,13 @@ export namespace Prisma {
     subscriptionStatus?: true
     subscriptionId?: true
     stripeCustomerId?: true
+    refreshToken?: true
+    isEmailVerified?: true
+    emailVerificationToken?: true
+    passwordResetToken?: true
+    passwordResetExpires?: true
+    twoFactorSecret?: true
+    isTwoFactorEnabled?: true
     linkedinId?: true
     linkedinAccessToken?: true
     linkedinRefreshToken?: true
@@ -1229,6 +1264,13 @@ export namespace Prisma {
     subscriptionStatus?: true
     subscriptionId?: true
     stripeCustomerId?: true
+    refreshToken?: true
+    isEmailVerified?: true
+    emailVerificationToken?: true
+    passwordResetToken?: true
+    passwordResetExpires?: true
+    twoFactorSecret?: true
+    isTwoFactorEnabled?: true
     linkedinId?: true
     linkedinAccessToken?: true
     linkedinRefreshToken?: true
@@ -1320,6 +1362,13 @@ export namespace Prisma {
     subscriptionStatus: $Enums.SubscriptionPlan
     subscriptionId: string | null
     stripeCustomerId: string | null
+    refreshToken: string | null
+    isEmailVerified: boolean
+    emailVerificationToken: string | null
+    passwordResetToken: string | null
+    passwordResetExpires: Date | null
+    twoFactorSecret: string | null
+    isTwoFactorEnabled: boolean
     linkedinId: string | null
     linkedinAccessToken: string | null
     linkedinRefreshToken: string | null
@@ -1355,6 +1404,13 @@ export namespace Prisma {
     subscriptionStatus?: boolean
     subscriptionId?: boolean
     stripeCustomerId?: boolean
+    refreshToken?: boolean
+    isEmailVerified?: boolean
+    emailVerificationToken?: boolean
+    passwordResetToken?: boolean
+    passwordResetExpires?: boolean
+    twoFactorSecret?: boolean
+    isTwoFactorEnabled?: boolean
     linkedinId?: boolean
     linkedinAccessToken?: boolean
     linkedinRefreshToken?: boolean
@@ -1376,6 +1432,13 @@ export namespace Prisma {
     subscriptionStatus?: boolean
     subscriptionId?: boolean
     stripeCustomerId?: boolean
+    refreshToken?: boolean
+    isEmailVerified?: boolean
+    emailVerificationToken?: boolean
+    passwordResetToken?: boolean
+    passwordResetExpires?: boolean
+    twoFactorSecret?: boolean
+    isTwoFactorEnabled?: boolean
     linkedinId?: boolean
     linkedinAccessToken?: boolean
     linkedinRefreshToken?: boolean
@@ -1394,6 +1457,13 @@ export namespace Prisma {
     subscriptionStatus?: boolean
     subscriptionId?: boolean
     stripeCustomerId?: boolean
+    refreshToken?: boolean
+    isEmailVerified?: boolean
+    emailVerificationToken?: boolean
+    passwordResetToken?: boolean
+    passwordResetExpires?: boolean
+    twoFactorSecret?: boolean
+    isTwoFactorEnabled?: boolean
     linkedinId?: boolean
     linkedinAccessToken?: boolean
     linkedinRefreshToken?: boolean
@@ -1412,6 +1482,13 @@ export namespace Prisma {
     subscriptionStatus?: boolean
     subscriptionId?: boolean
     stripeCustomerId?: boolean
+    refreshToken?: boolean
+    isEmailVerified?: boolean
+    emailVerificationToken?: boolean
+    passwordResetToken?: boolean
+    passwordResetExpires?: boolean
+    twoFactorSecret?: boolean
+    isTwoFactorEnabled?: boolean
     linkedinId?: boolean
     linkedinAccessToken?: boolean
     linkedinRefreshToken?: boolean
@@ -1420,7 +1497,7 @@ export namespace Prisma {
     updatedAt?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "password" | "firstName" | "lastName" | "role" | "subscriptionStatus" | "subscriptionId" | "stripeCustomerId" | "linkedinId" | "linkedinAccessToken" | "linkedinRefreshToken" | "linkedinTokenExpiresAt" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "password" | "firstName" | "lastName" | "role" | "subscriptionStatus" | "subscriptionId" | "stripeCustomerId" | "refreshToken" | "isEmailVerified" | "emailVerificationToken" | "passwordResetToken" | "passwordResetExpires" | "twoFactorSecret" | "isTwoFactorEnabled" | "linkedinId" | "linkedinAccessToken" | "linkedinRefreshToken" | "linkedinTokenExpiresAt" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     posts?: boolean | User$postsArgs<ExtArgs>
     subscription?: boolean | User$subscriptionArgs<ExtArgs>
@@ -1445,6 +1522,13 @@ export namespace Prisma {
       subscriptionStatus: $Enums.SubscriptionPlan
       subscriptionId: string | null
       stripeCustomerId: string | null
+      refreshToken: string | null
+      isEmailVerified: boolean
+      emailVerificationToken: string | null
+      passwordResetToken: string | null
+      passwordResetExpires: Date | null
+      twoFactorSecret: string | null
+      isTwoFactorEnabled: boolean
       linkedinId: string | null
       linkedinAccessToken: string | null
       linkedinRefreshToken: string | null
@@ -1885,6 +1969,13 @@ export namespace Prisma {
     readonly subscriptionStatus: FieldRef<"User", 'SubscriptionPlan'>
     readonly subscriptionId: FieldRef<"User", 'String'>
     readonly stripeCustomerId: FieldRef<"User", 'String'>
+    readonly refreshToken: FieldRef<"User", 'String'>
+    readonly isEmailVerified: FieldRef<"User", 'Boolean'>
+    readonly emailVerificationToken: FieldRef<"User", 'String'>
+    readonly passwordResetToken: FieldRef<"User", 'String'>
+    readonly passwordResetExpires: FieldRef<"User", 'DateTime'>
+    readonly twoFactorSecret: FieldRef<"User", 'String'>
+    readonly isTwoFactorEnabled: FieldRef<"User", 'Boolean'>
     readonly linkedinId: FieldRef<"User", 'String'>
     readonly linkedinAccessToken: FieldRef<"User", 'String'>
     readonly linkedinRefreshToken: FieldRef<"User", 'String'>
@@ -4597,6 +4688,13 @@ export namespace Prisma {
     subscriptionStatus: 'subscriptionStatus',
     subscriptionId: 'subscriptionId',
     stripeCustomerId: 'stripeCustomerId',
+    refreshToken: 'refreshToken',
+    isEmailVerified: 'isEmailVerified',
+    emailVerificationToken: 'emailVerificationToken',
+    passwordResetToken: 'passwordResetToken',
+    passwordResetExpires: 'passwordResetExpires',
+    twoFactorSecret: 'twoFactorSecret',
+    isTwoFactorEnabled: 'isTwoFactorEnabled',
     linkedinId: 'linkedinId',
     linkedinAccessToken: 'linkedinAccessToken',
     linkedinRefreshToken: 'linkedinRefreshToken',
@@ -4711,6 +4809,13 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'Boolean'
+   */
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
+    
+
+
+  /**
    * Reference to a field of type 'DateTime'
    */
   export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
@@ -4735,13 +4840,6 @@ export namespace Prisma {
    * Reference to a field of type 'PostStatus[]'
    */
   export type ListEnumPostStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PostStatus[]'>
-    
-
-
-  /**
-   * Reference to a field of type 'Boolean'
-   */
-  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
     
 
 
@@ -4775,6 +4873,13 @@ export namespace Prisma {
     subscriptionStatus?: EnumSubscriptionPlanFilter<"User"> | $Enums.SubscriptionPlan
     subscriptionId?: StringNullableFilter<"User"> | string | null
     stripeCustomerId?: StringNullableFilter<"User"> | string | null
+    refreshToken?: StringNullableFilter<"User"> | string | null
+    isEmailVerified?: BoolFilter<"User"> | boolean
+    emailVerificationToken?: StringNullableFilter<"User"> | string | null
+    passwordResetToken?: StringNullableFilter<"User"> | string | null
+    passwordResetExpires?: DateTimeNullableFilter<"User"> | Date | string | null
+    twoFactorSecret?: StringNullableFilter<"User"> | string | null
+    isTwoFactorEnabled?: BoolFilter<"User"> | boolean
     linkedinId?: StringNullableFilter<"User"> | string | null
     linkedinAccessToken?: StringNullableFilter<"User"> | string | null
     linkedinRefreshToken?: StringNullableFilter<"User"> | string | null
@@ -4795,6 +4900,13 @@ export namespace Prisma {
     subscriptionStatus?: SortOrder
     subscriptionId?: SortOrderInput | SortOrder
     stripeCustomerId?: SortOrderInput | SortOrder
+    refreshToken?: SortOrderInput | SortOrder
+    isEmailVerified?: SortOrder
+    emailVerificationToken?: SortOrderInput | SortOrder
+    passwordResetToken?: SortOrderInput | SortOrder
+    passwordResetExpires?: SortOrderInput | SortOrder
+    twoFactorSecret?: SortOrderInput | SortOrder
+    isTwoFactorEnabled?: SortOrder
     linkedinId?: SortOrderInput | SortOrder
     linkedinAccessToken?: SortOrderInput | SortOrder
     linkedinRefreshToken?: SortOrderInput | SortOrder
@@ -4818,6 +4930,13 @@ export namespace Prisma {
     role?: EnumRoleFilter<"User"> | $Enums.Role
     subscriptionStatus?: EnumSubscriptionPlanFilter<"User"> | $Enums.SubscriptionPlan
     subscriptionId?: StringNullableFilter<"User"> | string | null
+    refreshToken?: StringNullableFilter<"User"> | string | null
+    isEmailVerified?: BoolFilter<"User"> | boolean
+    emailVerificationToken?: StringNullableFilter<"User"> | string | null
+    passwordResetToken?: StringNullableFilter<"User"> | string | null
+    passwordResetExpires?: DateTimeNullableFilter<"User"> | Date | string | null
+    twoFactorSecret?: StringNullableFilter<"User"> | string | null
+    isTwoFactorEnabled?: BoolFilter<"User"> | boolean
     linkedinId?: StringNullableFilter<"User"> | string | null
     linkedinAccessToken?: StringNullableFilter<"User"> | string | null
     linkedinRefreshToken?: StringNullableFilter<"User"> | string | null
@@ -4838,6 +4957,13 @@ export namespace Prisma {
     subscriptionStatus?: SortOrder
     subscriptionId?: SortOrderInput | SortOrder
     stripeCustomerId?: SortOrderInput | SortOrder
+    refreshToken?: SortOrderInput | SortOrder
+    isEmailVerified?: SortOrder
+    emailVerificationToken?: SortOrderInput | SortOrder
+    passwordResetToken?: SortOrderInput | SortOrder
+    passwordResetExpires?: SortOrderInput | SortOrder
+    twoFactorSecret?: SortOrderInput | SortOrder
+    isTwoFactorEnabled?: SortOrder
     linkedinId?: SortOrderInput | SortOrder
     linkedinAccessToken?: SortOrderInput | SortOrder
     linkedinRefreshToken?: SortOrderInput | SortOrder
@@ -4862,6 +4988,13 @@ export namespace Prisma {
     subscriptionStatus?: EnumSubscriptionPlanWithAggregatesFilter<"User"> | $Enums.SubscriptionPlan
     subscriptionId?: StringNullableWithAggregatesFilter<"User"> | string | null
     stripeCustomerId?: StringNullableWithAggregatesFilter<"User"> | string | null
+    refreshToken?: StringNullableWithAggregatesFilter<"User"> | string | null
+    isEmailVerified?: BoolWithAggregatesFilter<"User"> | boolean
+    emailVerificationToken?: StringNullableWithAggregatesFilter<"User"> | string | null
+    passwordResetToken?: StringNullableWithAggregatesFilter<"User"> | string | null
+    passwordResetExpires?: DateTimeNullableWithAggregatesFilter<"User"> | Date | string | null
+    twoFactorSecret?: StringNullableWithAggregatesFilter<"User"> | string | null
+    isTwoFactorEnabled?: BoolWithAggregatesFilter<"User"> | boolean
     linkedinId?: StringNullableWithAggregatesFilter<"User"> | string | null
     linkedinAccessToken?: StringNullableWithAggregatesFilter<"User"> | string | null
     linkedinRefreshToken?: StringNullableWithAggregatesFilter<"User"> | string | null
@@ -5035,6 +5168,13 @@ export namespace Prisma {
     subscriptionStatus?: $Enums.SubscriptionPlan
     subscriptionId?: string | null
     stripeCustomerId?: string | null
+    refreshToken?: string | null
+    isEmailVerified?: boolean
+    emailVerificationToken?: string | null
+    passwordResetToken?: string | null
+    passwordResetExpires?: Date | string | null
+    twoFactorSecret?: string | null
+    isTwoFactorEnabled?: boolean
     linkedinId?: string | null
     linkedinAccessToken?: string | null
     linkedinRefreshToken?: string | null
@@ -5055,6 +5195,13 @@ export namespace Prisma {
     subscriptionStatus?: $Enums.SubscriptionPlan
     subscriptionId?: string | null
     stripeCustomerId?: string | null
+    refreshToken?: string | null
+    isEmailVerified?: boolean
+    emailVerificationToken?: string | null
+    passwordResetToken?: string | null
+    passwordResetExpires?: Date | string | null
+    twoFactorSecret?: string | null
+    isTwoFactorEnabled?: boolean
     linkedinId?: string | null
     linkedinAccessToken?: string | null
     linkedinRefreshToken?: string | null
@@ -5075,6 +5222,13 @@ export namespace Prisma {
     subscriptionStatus?: EnumSubscriptionPlanFieldUpdateOperationsInput | $Enums.SubscriptionPlan
     subscriptionId?: NullableStringFieldUpdateOperationsInput | string | null
     stripeCustomerId?: NullableStringFieldUpdateOperationsInput | string | null
+    refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
+    isEmailVerified?: BoolFieldUpdateOperationsInput | boolean
+    emailVerificationToken?: NullableStringFieldUpdateOperationsInput | string | null
+    passwordResetToken?: NullableStringFieldUpdateOperationsInput | string | null
+    passwordResetExpires?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    twoFactorSecret?: NullableStringFieldUpdateOperationsInput | string | null
+    isTwoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
     linkedinId?: NullableStringFieldUpdateOperationsInput | string | null
     linkedinAccessToken?: NullableStringFieldUpdateOperationsInput | string | null
     linkedinRefreshToken?: NullableStringFieldUpdateOperationsInput | string | null
@@ -5095,6 +5249,13 @@ export namespace Prisma {
     subscriptionStatus?: EnumSubscriptionPlanFieldUpdateOperationsInput | $Enums.SubscriptionPlan
     subscriptionId?: NullableStringFieldUpdateOperationsInput | string | null
     stripeCustomerId?: NullableStringFieldUpdateOperationsInput | string | null
+    refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
+    isEmailVerified?: BoolFieldUpdateOperationsInput | boolean
+    emailVerificationToken?: NullableStringFieldUpdateOperationsInput | string | null
+    passwordResetToken?: NullableStringFieldUpdateOperationsInput | string | null
+    passwordResetExpires?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    twoFactorSecret?: NullableStringFieldUpdateOperationsInput | string | null
+    isTwoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
     linkedinId?: NullableStringFieldUpdateOperationsInput | string | null
     linkedinAccessToken?: NullableStringFieldUpdateOperationsInput | string | null
     linkedinRefreshToken?: NullableStringFieldUpdateOperationsInput | string | null
@@ -5115,6 +5276,13 @@ export namespace Prisma {
     subscriptionStatus?: $Enums.SubscriptionPlan
     subscriptionId?: string | null
     stripeCustomerId?: string | null
+    refreshToken?: string | null
+    isEmailVerified?: boolean
+    emailVerificationToken?: string | null
+    passwordResetToken?: string | null
+    passwordResetExpires?: Date | string | null
+    twoFactorSecret?: string | null
+    isTwoFactorEnabled?: boolean
     linkedinId?: string | null
     linkedinAccessToken?: string | null
     linkedinRefreshToken?: string | null
@@ -5133,6 +5301,13 @@ export namespace Prisma {
     subscriptionStatus?: EnumSubscriptionPlanFieldUpdateOperationsInput | $Enums.SubscriptionPlan
     subscriptionId?: NullableStringFieldUpdateOperationsInput | string | null
     stripeCustomerId?: NullableStringFieldUpdateOperationsInput | string | null
+    refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
+    isEmailVerified?: BoolFieldUpdateOperationsInput | boolean
+    emailVerificationToken?: NullableStringFieldUpdateOperationsInput | string | null
+    passwordResetToken?: NullableStringFieldUpdateOperationsInput | string | null
+    passwordResetExpires?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    twoFactorSecret?: NullableStringFieldUpdateOperationsInput | string | null
+    isTwoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
     linkedinId?: NullableStringFieldUpdateOperationsInput | string | null
     linkedinAccessToken?: NullableStringFieldUpdateOperationsInput | string | null
     linkedinRefreshToken?: NullableStringFieldUpdateOperationsInput | string | null
@@ -5151,6 +5326,13 @@ export namespace Prisma {
     subscriptionStatus?: EnumSubscriptionPlanFieldUpdateOperationsInput | $Enums.SubscriptionPlan
     subscriptionId?: NullableStringFieldUpdateOperationsInput | string | null
     stripeCustomerId?: NullableStringFieldUpdateOperationsInput | string | null
+    refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
+    isEmailVerified?: BoolFieldUpdateOperationsInput | boolean
+    emailVerificationToken?: NullableStringFieldUpdateOperationsInput | string | null
+    passwordResetToken?: NullableStringFieldUpdateOperationsInput | string | null
+    passwordResetExpires?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    twoFactorSecret?: NullableStringFieldUpdateOperationsInput | string | null
+    isTwoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
     linkedinId?: NullableStringFieldUpdateOperationsInput | string | null
     linkedinAccessToken?: NullableStringFieldUpdateOperationsInput | string | null
     linkedinRefreshToken?: NullableStringFieldUpdateOperationsInput | string | null
@@ -5376,6 +5558,11 @@ export namespace Prisma {
     not?: NestedEnumSubscriptionPlanFilter<$PrismaModel> | $Enums.SubscriptionPlan
   }
 
+  export type BoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
   export type DateTimeNullableFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
@@ -5428,6 +5615,13 @@ export namespace Prisma {
     subscriptionStatus?: SortOrder
     subscriptionId?: SortOrder
     stripeCustomerId?: SortOrder
+    refreshToken?: SortOrder
+    isEmailVerified?: SortOrder
+    emailVerificationToken?: SortOrder
+    passwordResetToken?: SortOrder
+    passwordResetExpires?: SortOrder
+    twoFactorSecret?: SortOrder
+    isTwoFactorEnabled?: SortOrder
     linkedinId?: SortOrder
     linkedinAccessToken?: SortOrder
     linkedinRefreshToken?: SortOrder
@@ -5446,6 +5640,13 @@ export namespace Prisma {
     subscriptionStatus?: SortOrder
     subscriptionId?: SortOrder
     stripeCustomerId?: SortOrder
+    refreshToken?: SortOrder
+    isEmailVerified?: SortOrder
+    emailVerificationToken?: SortOrder
+    passwordResetToken?: SortOrder
+    passwordResetExpires?: SortOrder
+    twoFactorSecret?: SortOrder
+    isTwoFactorEnabled?: SortOrder
     linkedinId?: SortOrder
     linkedinAccessToken?: SortOrder
     linkedinRefreshToken?: SortOrder
@@ -5464,6 +5665,13 @@ export namespace Prisma {
     subscriptionStatus?: SortOrder
     subscriptionId?: SortOrder
     stripeCustomerId?: SortOrder
+    refreshToken?: SortOrder
+    isEmailVerified?: SortOrder
+    emailVerificationToken?: SortOrder
+    passwordResetToken?: SortOrder
+    passwordResetExpires?: SortOrder
+    twoFactorSecret?: SortOrder
+    isTwoFactorEnabled?: SortOrder
     linkedinId?: SortOrder
     linkedinAccessToken?: SortOrder
     linkedinRefreshToken?: SortOrder
@@ -5528,6 +5736,14 @@ export namespace Prisma {
     _max?: NestedEnumSubscriptionPlanFilter<$PrismaModel>
   }
 
+  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
   export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
@@ -5561,11 +5777,6 @@ export namespace Prisma {
     in?: $Enums.PostStatus[] | ListEnumPostStatusFieldRefInput<$PrismaModel>
     notIn?: $Enums.PostStatus[] | ListEnumPostStatusFieldRefInput<$PrismaModel>
     not?: NestedEnumPostStatusFilter<$PrismaModel> | $Enums.PostStatus
-  }
-
-  export type BoolFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolFilter<$PrismaModel> | boolean
   }
 
   export type UserScalarRelationFilter = {
@@ -5620,14 +5831,6 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedEnumPostStatusFilter<$PrismaModel>
     _max?: NestedEnumPostStatusFilter<$PrismaModel>
-  }
-
-  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedBoolFilter<$PrismaModel>
-    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type SubscriptionCountOrderByAggregateInput = {
@@ -5708,6 +5911,10 @@ export namespace Prisma {
     set?: $Enums.SubscriptionPlan
   }
 
+  export type BoolFieldUpdateOperationsInput = {
+    set?: boolean
+  }
+
   export type NullableDateTimeFieldUpdateOperationsInput = {
     set?: Date | string | null
   }
@@ -5774,10 +5981,6 @@ export namespace Prisma {
     set?: $Enums.PostStatus
   }
 
-  export type BoolFieldUpdateOperationsInput = {
-    set?: boolean
-  }
-
   export type UserUpdateOneRequiredWithoutPostsNestedInput = {
     create?: XOR<UserCreateWithoutPostsInput, UserUncheckedCreateWithoutPostsInput>
     connectOrCreate?: UserCreateOrConnectWithoutPostsInput
@@ -5840,6 +6043,11 @@ export namespace Prisma {
     in?: $Enums.SubscriptionPlan[] | ListEnumSubscriptionPlanFieldRefInput<$PrismaModel>
     notIn?: $Enums.SubscriptionPlan[] | ListEnumSubscriptionPlanFieldRefInput<$PrismaModel>
     not?: NestedEnumSubscriptionPlanFilter<$PrismaModel> | $Enums.SubscriptionPlan
+  }
+
+  export type NestedBoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
   }
 
   export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
@@ -5940,6 +6148,14 @@ export namespace Prisma {
     _max?: NestedEnumSubscriptionPlanFilter<$PrismaModel>
   }
 
+  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
   export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
@@ -5975,11 +6191,6 @@ export namespace Prisma {
     not?: NestedEnumPostStatusFilter<$PrismaModel> | $Enums.PostStatus
   }
 
-  export type NestedBoolFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolFilter<$PrismaModel> | boolean
-  }
-
   export type NestedEnumPostStatusWithAggregatesFilter<$PrismaModel = never> = {
     equals?: $Enums.PostStatus | EnumPostStatusFieldRefInput<$PrismaModel>
     in?: $Enums.PostStatus[] | ListEnumPostStatusFieldRefInput<$PrismaModel>
@@ -5988,14 +6199,6 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedEnumPostStatusFilter<$PrismaModel>
     _max?: NestedEnumPostStatusFilter<$PrismaModel>
-  }
-
-  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedBoolFilter<$PrismaModel>
-    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type PostCreateWithoutAuthorInput = {
@@ -6134,6 +6337,13 @@ export namespace Prisma {
     subscriptionStatus?: $Enums.SubscriptionPlan
     subscriptionId?: string | null
     stripeCustomerId?: string | null
+    refreshToken?: string | null
+    isEmailVerified?: boolean
+    emailVerificationToken?: string | null
+    passwordResetToken?: string | null
+    passwordResetExpires?: Date | string | null
+    twoFactorSecret?: string | null
+    isTwoFactorEnabled?: boolean
     linkedinId?: string | null
     linkedinAccessToken?: string | null
     linkedinRefreshToken?: string | null
@@ -6153,6 +6363,13 @@ export namespace Prisma {
     subscriptionStatus?: $Enums.SubscriptionPlan
     subscriptionId?: string | null
     stripeCustomerId?: string | null
+    refreshToken?: string | null
+    isEmailVerified?: boolean
+    emailVerificationToken?: string | null
+    passwordResetToken?: string | null
+    passwordResetExpires?: Date | string | null
+    twoFactorSecret?: string | null
+    isTwoFactorEnabled?: boolean
     linkedinId?: string | null
     linkedinAccessToken?: string | null
     linkedinRefreshToken?: string | null
@@ -6188,6 +6405,13 @@ export namespace Prisma {
     subscriptionStatus?: EnumSubscriptionPlanFieldUpdateOperationsInput | $Enums.SubscriptionPlan
     subscriptionId?: NullableStringFieldUpdateOperationsInput | string | null
     stripeCustomerId?: NullableStringFieldUpdateOperationsInput | string | null
+    refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
+    isEmailVerified?: BoolFieldUpdateOperationsInput | boolean
+    emailVerificationToken?: NullableStringFieldUpdateOperationsInput | string | null
+    passwordResetToken?: NullableStringFieldUpdateOperationsInput | string | null
+    passwordResetExpires?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    twoFactorSecret?: NullableStringFieldUpdateOperationsInput | string | null
+    isTwoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
     linkedinId?: NullableStringFieldUpdateOperationsInput | string | null
     linkedinAccessToken?: NullableStringFieldUpdateOperationsInput | string | null
     linkedinRefreshToken?: NullableStringFieldUpdateOperationsInput | string | null
@@ -6207,6 +6431,13 @@ export namespace Prisma {
     subscriptionStatus?: EnumSubscriptionPlanFieldUpdateOperationsInput | $Enums.SubscriptionPlan
     subscriptionId?: NullableStringFieldUpdateOperationsInput | string | null
     stripeCustomerId?: NullableStringFieldUpdateOperationsInput | string | null
+    refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
+    isEmailVerified?: BoolFieldUpdateOperationsInput | boolean
+    emailVerificationToken?: NullableStringFieldUpdateOperationsInput | string | null
+    passwordResetToken?: NullableStringFieldUpdateOperationsInput | string | null
+    passwordResetExpires?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    twoFactorSecret?: NullableStringFieldUpdateOperationsInput | string | null
+    isTwoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
     linkedinId?: NullableStringFieldUpdateOperationsInput | string | null
     linkedinAccessToken?: NullableStringFieldUpdateOperationsInput | string | null
     linkedinRefreshToken?: NullableStringFieldUpdateOperationsInput | string | null
@@ -6226,6 +6457,13 @@ export namespace Prisma {
     subscriptionStatus?: $Enums.SubscriptionPlan
     subscriptionId?: string | null
     stripeCustomerId?: string | null
+    refreshToken?: string | null
+    isEmailVerified?: boolean
+    emailVerificationToken?: string | null
+    passwordResetToken?: string | null
+    passwordResetExpires?: Date | string | null
+    twoFactorSecret?: string | null
+    isTwoFactorEnabled?: boolean
     linkedinId?: string | null
     linkedinAccessToken?: string | null
     linkedinRefreshToken?: string | null
@@ -6245,6 +6483,13 @@ export namespace Prisma {
     subscriptionStatus?: $Enums.SubscriptionPlan
     subscriptionId?: string | null
     stripeCustomerId?: string | null
+    refreshToken?: string | null
+    isEmailVerified?: boolean
+    emailVerificationToken?: string | null
+    passwordResetToken?: string | null
+    passwordResetExpires?: Date | string | null
+    twoFactorSecret?: string | null
+    isTwoFactorEnabled?: boolean
     linkedinId?: string | null
     linkedinAccessToken?: string | null
     linkedinRefreshToken?: string | null
@@ -6280,6 +6525,13 @@ export namespace Prisma {
     subscriptionStatus?: EnumSubscriptionPlanFieldUpdateOperationsInput | $Enums.SubscriptionPlan
     subscriptionId?: NullableStringFieldUpdateOperationsInput | string | null
     stripeCustomerId?: NullableStringFieldUpdateOperationsInput | string | null
+    refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
+    isEmailVerified?: BoolFieldUpdateOperationsInput | boolean
+    emailVerificationToken?: NullableStringFieldUpdateOperationsInput | string | null
+    passwordResetToken?: NullableStringFieldUpdateOperationsInput | string | null
+    passwordResetExpires?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    twoFactorSecret?: NullableStringFieldUpdateOperationsInput | string | null
+    isTwoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
     linkedinId?: NullableStringFieldUpdateOperationsInput | string | null
     linkedinAccessToken?: NullableStringFieldUpdateOperationsInput | string | null
     linkedinRefreshToken?: NullableStringFieldUpdateOperationsInput | string | null
@@ -6299,6 +6551,13 @@ export namespace Prisma {
     subscriptionStatus?: EnumSubscriptionPlanFieldUpdateOperationsInput | $Enums.SubscriptionPlan
     subscriptionId?: NullableStringFieldUpdateOperationsInput | string | null
     stripeCustomerId?: NullableStringFieldUpdateOperationsInput | string | null
+    refreshToken?: NullableStringFieldUpdateOperationsInput | string | null
+    isEmailVerified?: BoolFieldUpdateOperationsInput | boolean
+    emailVerificationToken?: NullableStringFieldUpdateOperationsInput | string | null
+    passwordResetToken?: NullableStringFieldUpdateOperationsInput | string | null
+    passwordResetExpires?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    twoFactorSecret?: NullableStringFieldUpdateOperationsInput | string | null
+    isTwoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
     linkedinId?: NullableStringFieldUpdateOperationsInput | string | null
     linkedinAccessToken?: NullableStringFieldUpdateOperationsInput | string | null
     linkedinRefreshToken?: NullableStringFieldUpdateOperationsInput | string | null

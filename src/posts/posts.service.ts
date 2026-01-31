@@ -1,7 +1,7 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 import { CreatePostDto } from './dto/create-post.dto';
-import { Post, PostStatus } from 'generated/prisma/client';
+import { Post, PostStatus } from '../../generated/prisma/client';
 import { LinkedInService } from '../linkedin/linkedin.service';
 import { SchedulingService } from '../scheduling/scheduling.service';
 

@@ -3,7 +3,7 @@ import { Job } from 'bullmq';
 import { Logger } from '@nestjs/common';
 import { LinkedInService } from '../linkedin/linkedin.service';
 import { PrismaService } from '../prisma/prisma.service';
-import { PostStatus } from '@prisma/client';
+import { PostStatus } from '../../generated/prisma/client';
 
 interface JobData {
   postId: string;
