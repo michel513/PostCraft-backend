@@ -18,6 +18,12 @@ export class UsersService {
     });
   }
 
+  async findFirst(where: Prisma.UserWhereInput): Promise<User | null> {
+    return this.prisma.user.findFirst({
+      where,
+    });
+  }
+
   async findAll(): Promise<User[]> {
     return this.prisma.user.findMany();
   }

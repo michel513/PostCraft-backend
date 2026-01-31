@@ -42,8 +42,8 @@ model User {
   // App Auth Enhancements
   refreshToken           String? // Hashed refresh token
   isEmailVerified        Boolean   @default(false)
-  emailVerificationToken String?
-  passwordResetToken     String?
+  emailVerificationToken String?   @unique
+  passwordResetToken     String?   @unique
   passwordResetExpires   DateTime?
   twoFactorSecret        String?
   isTwoFactorEnabled     Boolean   @default(false)

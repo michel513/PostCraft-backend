@@ -15,6 +15,7 @@ import { AiModule } from './ai/ai.module';
 import { LinkedInModule } from './linkedin/linkedin.module';
 import { CaslModule } from './casl/casl.module';
 import { SchedulingModule } from './scheduling/scheduling.module';
+import { MailModule } from './mail/mail.module';
 
 @Module({
   imports: [
@@ -40,6 +41,22 @@ import { SchedulingModule } from './scheduling/scheduling.module';
         LINKEDIN_REDIRECT_URI: Joi.string().required(),
         PAYTECH_API_KEY: Joi.string().required(),
         PAYTECH_API_SECRET: Joi.string().required(),
+        PAYTECH_ENV: Joi.string().valid('test', 'prod').default('test'),
+        REDIS_URL: Joi.string().required(),
+        MAIL_HOST: Joi.string().required(),
+        MAIL_PORT: Joi.number().required(),
+        MAIL_USER: Joi.string().allow('').optional(),
+        MAIL_PASS: Joi.string().allow('').optional(),
+        MAIL_FROM: Joi.string().required(),
+        GOOGLE_CLIENT_ID: Joi.string().allow('').optional(),
+        GOOGLE_CLIENT_SECRET: Joi.string().allow('').optional(),
+        GOOGLE_CALLBACK_URL: Joi.string().allow('').optional(),
+        GITHUB_CLIENT_ID: Joi.string().allow('').optional(),
+        GITHUB_CLIENT_SECRET: Joi.string().allow('').optional(),
+        GITHUB_CALLBACK_URL: Joi.string().allow('').optional(),
+        FACEBOOK_CLIENT_ID: Joi.string().allow('').optional(),
+        FACEBOOK_CLIENT_SECRET: Joi.string().allow('').optional(),
+        FACEBOOK_CALLBACK_URL: Joi.string().allow('').optional(),
       }),
     }),
     ThrottlerModule.forRootAsync({
@@ -61,6 +78,7 @@ import { SchedulingModule } from './scheduling/scheduling.module';
     LinkedInModule,
     CaslModule,
     SchedulingModule,
+    MailModule,
   ],
   controllers: [AppController],
   providers: [

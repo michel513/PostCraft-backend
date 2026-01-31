@@ -1144,6 +1144,9 @@ export namespace Prisma {
     passwordResetExpires: Date | null
     twoFactorSecret: string | null
     isTwoFactorEnabled: boolean | null
+    googleId: string | null
+    githubId: string | null
+    facebookId: string | null
     linkedinId: string | null
     linkedinAccessToken: string | null
     linkedinRefreshToken: string | null
@@ -1169,6 +1172,9 @@ export namespace Prisma {
     passwordResetExpires: Date | null
     twoFactorSecret: string | null
     isTwoFactorEnabled: boolean | null
+    googleId: string | null
+    githubId: string | null
+    facebookId: string | null
     linkedinId: string | null
     linkedinAccessToken: string | null
     linkedinRefreshToken: string | null
@@ -1194,6 +1200,9 @@ export namespace Prisma {
     passwordResetExpires: number
     twoFactorSecret: number
     isTwoFactorEnabled: number
+    googleId: number
+    githubId: number
+    facebookId: number
     linkedinId: number
     linkedinAccessToken: number
     linkedinRefreshToken: number
@@ -1221,6 +1230,9 @@ export namespace Prisma {
     passwordResetExpires?: true
     twoFactorSecret?: true
     isTwoFactorEnabled?: true
+    googleId?: true
+    githubId?: true
+    facebookId?: true
     linkedinId?: true
     linkedinAccessToken?: true
     linkedinRefreshToken?: true
@@ -1246,6 +1258,9 @@ export namespace Prisma {
     passwordResetExpires?: true
     twoFactorSecret?: true
     isTwoFactorEnabled?: true
+    googleId?: true
+    githubId?: true
+    facebookId?: true
     linkedinId?: true
     linkedinAccessToken?: true
     linkedinRefreshToken?: true
@@ -1271,6 +1286,9 @@ export namespace Prisma {
     passwordResetExpires?: true
     twoFactorSecret?: true
     isTwoFactorEnabled?: true
+    googleId?: true
+    githubId?: true
+    facebookId?: true
     linkedinId?: true
     linkedinAccessToken?: true
     linkedinRefreshToken?: true
@@ -1369,6 +1387,9 @@ export namespace Prisma {
     passwordResetExpires: Date | null
     twoFactorSecret: string | null
     isTwoFactorEnabled: boolean
+    googleId: string | null
+    githubId: string | null
+    facebookId: string | null
     linkedinId: string | null
     linkedinAccessToken: string | null
     linkedinRefreshToken: string | null
@@ -1411,6 +1432,9 @@ export namespace Prisma {
     passwordResetExpires?: boolean
     twoFactorSecret?: boolean
     isTwoFactorEnabled?: boolean
+    googleId?: boolean
+    githubId?: boolean
+    facebookId?: boolean
     linkedinId?: boolean
     linkedinAccessToken?: boolean
     linkedinRefreshToken?: boolean
@@ -1439,6 +1463,9 @@ export namespace Prisma {
     passwordResetExpires?: boolean
     twoFactorSecret?: boolean
     isTwoFactorEnabled?: boolean
+    googleId?: boolean
+    githubId?: boolean
+    facebookId?: boolean
     linkedinId?: boolean
     linkedinAccessToken?: boolean
     linkedinRefreshToken?: boolean
@@ -1464,6 +1491,9 @@ export namespace Prisma {
     passwordResetExpires?: boolean
     twoFactorSecret?: boolean
     isTwoFactorEnabled?: boolean
+    googleId?: boolean
+    githubId?: boolean
+    facebookId?: boolean
     linkedinId?: boolean
     linkedinAccessToken?: boolean
     linkedinRefreshToken?: boolean
@@ -1489,6 +1519,9 @@ export namespace Prisma {
     passwordResetExpires?: boolean
     twoFactorSecret?: boolean
     isTwoFactorEnabled?: boolean
+    googleId?: boolean
+    githubId?: boolean
+    facebookId?: boolean
     linkedinId?: boolean
     linkedinAccessToken?: boolean
     linkedinRefreshToken?: boolean
@@ -1497,7 +1530,7 @@ export namespace Prisma {
     updatedAt?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "password" | "firstName" | "lastName" | "role" | "subscriptionStatus" | "subscriptionId" | "stripeCustomerId" | "refreshToken" | "isEmailVerified" | "emailVerificationToken" | "passwordResetToken" | "passwordResetExpires" | "twoFactorSecret" | "isTwoFactorEnabled" | "linkedinId" | "linkedinAccessToken" | "linkedinRefreshToken" | "linkedinTokenExpiresAt" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "password" | "firstName" | "lastName" | "role" | "subscriptionStatus" | "subscriptionId" | "stripeCustomerId" | "refreshToken" | "isEmailVerified" | "emailVerificationToken" | "passwordResetToken" | "passwordResetExpires" | "twoFactorSecret" | "isTwoFactorEnabled" | "googleId" | "githubId" | "facebookId" | "linkedinId" | "linkedinAccessToken" | "linkedinRefreshToken" | "linkedinTokenExpiresAt" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     posts?: boolean | User$postsArgs<ExtArgs>
     subscription?: boolean | User$subscriptionArgs<ExtArgs>
@@ -1529,6 +1562,9 @@ export namespace Prisma {
       passwordResetExpires: Date | null
       twoFactorSecret: string | null
       isTwoFactorEnabled: boolean
+      googleId: string | null
+      githubId: string | null
+      facebookId: string | null
       linkedinId: string | null
       linkedinAccessToken: string | null
       linkedinRefreshToken: string | null
@@ -1976,6 +2012,9 @@ export namespace Prisma {
     readonly passwordResetExpires: FieldRef<"User", 'DateTime'>
     readonly twoFactorSecret: FieldRef<"User", 'String'>
     readonly isTwoFactorEnabled: FieldRef<"User", 'Boolean'>
+    readonly googleId: FieldRef<"User", 'String'>
+    readonly githubId: FieldRef<"User", 'String'>
+    readonly facebookId: FieldRef<"User", 'String'>
     readonly linkedinId: FieldRef<"User", 'String'>
     readonly linkedinAccessToken: FieldRef<"User", 'String'>
     readonly linkedinRefreshToken: FieldRef<"User", 'String'>
@@ -4695,6 +4734,9 @@ export namespace Prisma {
     passwordResetExpires: 'passwordResetExpires',
     twoFactorSecret: 'twoFactorSecret',
     isTwoFactorEnabled: 'isTwoFactorEnabled',
+    googleId: 'googleId',
+    githubId: 'githubId',
+    facebookId: 'facebookId',
     linkedinId: 'linkedinId',
     linkedinAccessToken: 'linkedinAccessToken',
     linkedinRefreshToken: 'linkedinRefreshToken',
@@ -4880,6 +4922,9 @@ export namespace Prisma {
     passwordResetExpires?: DateTimeNullableFilter<"User"> | Date | string | null
     twoFactorSecret?: StringNullableFilter<"User"> | string | null
     isTwoFactorEnabled?: BoolFilter<"User"> | boolean
+    googleId?: StringNullableFilter<"User"> | string | null
+    githubId?: StringNullableFilter<"User"> | string | null
+    facebookId?: StringNullableFilter<"User"> | string | null
     linkedinId?: StringNullableFilter<"User"> | string | null
     linkedinAccessToken?: StringNullableFilter<"User"> | string | null
     linkedinRefreshToken?: StringNullableFilter<"User"> | string | null
@@ -4907,6 +4952,9 @@ export namespace Prisma {
     passwordResetExpires?: SortOrderInput | SortOrder
     twoFactorSecret?: SortOrderInput | SortOrder
     isTwoFactorEnabled?: SortOrder
+    googleId?: SortOrderInput | SortOrder
+    githubId?: SortOrderInput | SortOrder
+    facebookId?: SortOrderInput | SortOrder
     linkedinId?: SortOrderInput | SortOrder
     linkedinAccessToken?: SortOrderInput | SortOrder
     linkedinRefreshToken?: SortOrderInput | SortOrder
@@ -4921,6 +4969,11 @@ export namespace Prisma {
     id?: string
     email?: string
     stripeCustomerId?: string
+    emailVerificationToken?: string
+    passwordResetToken?: string
+    googleId?: string
+    githubId?: string
+    facebookId?: string
     AND?: UserWhereInput | UserWhereInput[]
     OR?: UserWhereInput[]
     NOT?: UserWhereInput | UserWhereInput[]
@@ -4932,8 +4985,6 @@ export namespace Prisma {
     subscriptionId?: StringNullableFilter<"User"> | string | null
     refreshToken?: StringNullableFilter<"User"> | string | null
     isEmailVerified?: BoolFilter<"User"> | boolean
-    emailVerificationToken?: StringNullableFilter<"User"> | string | null
-    passwordResetToken?: StringNullableFilter<"User"> | string | null
     passwordResetExpires?: DateTimeNullableFilter<"User"> | Date | string | null
     twoFactorSecret?: StringNullableFilter<"User"> | string | null
     isTwoFactorEnabled?: BoolFilter<"User"> | boolean
@@ -4945,7 +4996,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"User"> | Date | string
     posts?: PostListRelationFilter
     subscription?: XOR<SubscriptionNullableScalarRelationFilter, SubscriptionWhereInput> | null
-  }, "id" | "email" | "stripeCustomerId">
+  }, "id" | "email" | "stripeCustomerId" | "emailVerificationToken" | "passwordResetToken" | "googleId" | "githubId" | "facebookId">
 
   export type UserOrderByWithAggregationInput = {
     id?: SortOrder
@@ -4964,6 +5015,9 @@ export namespace Prisma {
     passwordResetExpires?: SortOrderInput | SortOrder
     twoFactorSecret?: SortOrderInput | SortOrder
     isTwoFactorEnabled?: SortOrder
+    googleId?: SortOrderInput | SortOrder
+    githubId?: SortOrderInput | SortOrder
+    facebookId?: SortOrderInput | SortOrder
     linkedinId?: SortOrderInput | SortOrder
     linkedinAccessToken?: SortOrderInput | SortOrder
     linkedinRefreshToken?: SortOrderInput | SortOrder
@@ -4995,6 +5049,9 @@ export namespace Prisma {
     passwordResetExpires?: DateTimeNullableWithAggregatesFilter<"User"> | Date | string | null
     twoFactorSecret?: StringNullableWithAggregatesFilter<"User"> | string | null
     isTwoFactorEnabled?: BoolWithAggregatesFilter<"User"> | boolean
+    googleId?: StringNullableWithAggregatesFilter<"User"> | string | null
+    githubId?: StringNullableWithAggregatesFilter<"User"> | string | null
+    facebookId?: StringNullableWithAggregatesFilter<"User"> | string | null
     linkedinId?: StringNullableWithAggregatesFilter<"User"> | string | null
     linkedinAccessToken?: StringNullableWithAggregatesFilter<"User"> | string | null
     linkedinRefreshToken?: StringNullableWithAggregatesFilter<"User"> | string | null
@@ -5175,6 +5232,9 @@ export namespace Prisma {
     passwordResetExpires?: Date | string | null
     twoFactorSecret?: string | null
     isTwoFactorEnabled?: boolean
+    googleId?: string | null
+    githubId?: string | null
+    facebookId?: string | null
     linkedinId?: string | null
     linkedinAccessToken?: string | null
     linkedinRefreshToken?: string | null
@@ -5202,6 +5262,9 @@ export namespace Prisma {
     passwordResetExpires?: Date | string | null
     twoFactorSecret?: string | null
     isTwoFactorEnabled?: boolean
+    googleId?: string | null
+    githubId?: string | null
+    facebookId?: string | null
     linkedinId?: string | null
     linkedinAccessToken?: string | null
     linkedinRefreshToken?: string | null
@@ -5229,6 +5292,9 @@ export namespace Prisma {
     passwordResetExpires?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     twoFactorSecret?: NullableStringFieldUpdateOperationsInput | string | null
     isTwoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
+    googleId?: NullableStringFieldUpdateOperationsInput | string | null
+    githubId?: NullableStringFieldUpdateOperationsInput | string | null
+    facebookId?: NullableStringFieldUpdateOperationsInput | string | null
     linkedinId?: NullableStringFieldUpdateOperationsInput | string | null
     linkedinAccessToken?: NullableStringFieldUpdateOperationsInput | string | null
     linkedinRefreshToken?: NullableStringFieldUpdateOperationsInput | string | null
@@ -5256,6 +5322,9 @@ export namespace Prisma {
     passwordResetExpires?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     twoFactorSecret?: NullableStringFieldUpdateOperationsInput | string | null
     isTwoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
+    googleId?: NullableStringFieldUpdateOperationsInput | string | null
+    githubId?: NullableStringFieldUpdateOperationsInput | string | null
+    facebookId?: NullableStringFieldUpdateOperationsInput | string | null
     linkedinId?: NullableStringFieldUpdateOperationsInput | string | null
     linkedinAccessToken?: NullableStringFieldUpdateOperationsInput | string | null
     linkedinRefreshToken?: NullableStringFieldUpdateOperationsInput | string | null
@@ -5283,6 +5352,9 @@ export namespace Prisma {
     passwordResetExpires?: Date | string | null
     twoFactorSecret?: string | null
     isTwoFactorEnabled?: boolean
+    googleId?: string | null
+    githubId?: string | null
+    facebookId?: string | null
     linkedinId?: string | null
     linkedinAccessToken?: string | null
     linkedinRefreshToken?: string | null
@@ -5308,6 +5380,9 @@ export namespace Prisma {
     passwordResetExpires?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     twoFactorSecret?: NullableStringFieldUpdateOperationsInput | string | null
     isTwoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
+    googleId?: NullableStringFieldUpdateOperationsInput | string | null
+    githubId?: NullableStringFieldUpdateOperationsInput | string | null
+    facebookId?: NullableStringFieldUpdateOperationsInput | string | null
     linkedinId?: NullableStringFieldUpdateOperationsInput | string | null
     linkedinAccessToken?: NullableStringFieldUpdateOperationsInput | string | null
     linkedinRefreshToken?: NullableStringFieldUpdateOperationsInput | string | null
@@ -5333,6 +5408,9 @@ export namespace Prisma {
     passwordResetExpires?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     twoFactorSecret?: NullableStringFieldUpdateOperationsInput | string | null
     isTwoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
+    googleId?: NullableStringFieldUpdateOperationsInput | string | null
+    githubId?: NullableStringFieldUpdateOperationsInput | string | null
+    facebookId?: NullableStringFieldUpdateOperationsInput | string | null
     linkedinId?: NullableStringFieldUpdateOperationsInput | string | null
     linkedinAccessToken?: NullableStringFieldUpdateOperationsInput | string | null
     linkedinRefreshToken?: NullableStringFieldUpdateOperationsInput | string | null
@@ -5622,6 +5700,9 @@ export namespace Prisma {
     passwordResetExpires?: SortOrder
     twoFactorSecret?: SortOrder
     isTwoFactorEnabled?: SortOrder
+    googleId?: SortOrder
+    githubId?: SortOrder
+    facebookId?: SortOrder
     linkedinId?: SortOrder
     linkedinAccessToken?: SortOrder
     linkedinRefreshToken?: SortOrder
@@ -5647,6 +5728,9 @@ export namespace Prisma {
     passwordResetExpires?: SortOrder
     twoFactorSecret?: SortOrder
     isTwoFactorEnabled?: SortOrder
+    googleId?: SortOrder
+    githubId?: SortOrder
+    facebookId?: SortOrder
     linkedinId?: SortOrder
     linkedinAccessToken?: SortOrder
     linkedinRefreshToken?: SortOrder
@@ -5672,6 +5756,9 @@ export namespace Prisma {
     passwordResetExpires?: SortOrder
     twoFactorSecret?: SortOrder
     isTwoFactorEnabled?: SortOrder
+    googleId?: SortOrder
+    githubId?: SortOrder
+    facebookId?: SortOrder
     linkedinId?: SortOrder
     linkedinAccessToken?: SortOrder
     linkedinRefreshToken?: SortOrder
@@ -6344,6 +6431,9 @@ export namespace Prisma {
     passwordResetExpires?: Date | string | null
     twoFactorSecret?: string | null
     isTwoFactorEnabled?: boolean
+    googleId?: string | null
+    githubId?: string | null
+    facebookId?: string | null
     linkedinId?: string | null
     linkedinAccessToken?: string | null
     linkedinRefreshToken?: string | null
@@ -6370,6 +6460,9 @@ export namespace Prisma {
     passwordResetExpires?: Date | string | null
     twoFactorSecret?: string | null
     isTwoFactorEnabled?: boolean
+    googleId?: string | null
+    githubId?: string | null
+    facebookId?: string | null
     linkedinId?: string | null
     linkedinAccessToken?: string | null
     linkedinRefreshToken?: string | null
@@ -6412,6 +6505,9 @@ export namespace Prisma {
     passwordResetExpires?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     twoFactorSecret?: NullableStringFieldUpdateOperationsInput | string | null
     isTwoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
+    googleId?: NullableStringFieldUpdateOperationsInput | string | null
+    githubId?: NullableStringFieldUpdateOperationsInput | string | null
+    facebookId?: NullableStringFieldUpdateOperationsInput | string | null
     linkedinId?: NullableStringFieldUpdateOperationsInput | string | null
     linkedinAccessToken?: NullableStringFieldUpdateOperationsInput | string | null
     linkedinRefreshToken?: NullableStringFieldUpdateOperationsInput | string | null
@@ -6438,6 +6534,9 @@ export namespace Prisma {
     passwordResetExpires?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     twoFactorSecret?: NullableStringFieldUpdateOperationsInput | string | null
     isTwoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
+    googleId?: NullableStringFieldUpdateOperationsInput | string | null
+    githubId?: NullableStringFieldUpdateOperationsInput | string | null
+    facebookId?: NullableStringFieldUpdateOperationsInput | string | null
     linkedinId?: NullableStringFieldUpdateOperationsInput | string | null
     linkedinAccessToken?: NullableStringFieldUpdateOperationsInput | string | null
     linkedinRefreshToken?: NullableStringFieldUpdateOperationsInput | string | null
@@ -6464,6 +6563,9 @@ export namespace Prisma {
     passwordResetExpires?: Date | string | null
     twoFactorSecret?: string | null
     isTwoFactorEnabled?: boolean
+    googleId?: string | null
+    githubId?: string | null
+    facebookId?: string | null
     linkedinId?: string | null
     linkedinAccessToken?: string | null
     linkedinRefreshToken?: string | null
@@ -6490,6 +6592,9 @@ export namespace Prisma {
     passwordResetExpires?: Date | string | null
     twoFactorSecret?: string | null
     isTwoFactorEnabled?: boolean
+    googleId?: string | null
+    githubId?: string | null
+    facebookId?: string | null
     linkedinId?: string | null
     linkedinAccessToken?: string | null
     linkedinRefreshToken?: string | null
@@ -6532,6 +6637,9 @@ export namespace Prisma {
     passwordResetExpires?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     twoFactorSecret?: NullableStringFieldUpdateOperationsInput | string | null
     isTwoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
+    googleId?: NullableStringFieldUpdateOperationsInput | string | null
+    githubId?: NullableStringFieldUpdateOperationsInput | string | null
+    facebookId?: NullableStringFieldUpdateOperationsInput | string | null
     linkedinId?: NullableStringFieldUpdateOperationsInput | string | null
     linkedinAccessToken?: NullableStringFieldUpdateOperationsInput | string | null
     linkedinRefreshToken?: NullableStringFieldUpdateOperationsInput | string | null
@@ -6558,6 +6666,9 @@ export namespace Prisma {
     passwordResetExpires?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     twoFactorSecret?: NullableStringFieldUpdateOperationsInput | string | null
     isTwoFactorEnabled?: BoolFieldUpdateOperationsInput | boolean
+    googleId?: NullableStringFieldUpdateOperationsInput | string | null
+    githubId?: NullableStringFieldUpdateOperationsInput | string | null
+    facebookId?: NullableStringFieldUpdateOperationsInput | string | null
     linkedinId?: NullableStringFieldUpdateOperationsInput | string | null
     linkedinAccessToken?: NullableStringFieldUpdateOperationsInput | string | null
     linkedinRefreshToken?: NullableStringFieldUpdateOperationsInput | string | null
