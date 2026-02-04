@@ -16,6 +16,7 @@ import { LinkedInModule } from './linkedin/linkedin.module';
 import { CaslModule } from './casl/casl.module';
 import { SchedulingModule } from './scheduling/scheduling.module';
 import { MailModule } from './mail/mail.module';
+import { AdminModule } from './admin/admin.module';
 
 @Module({
   imports: [
@@ -79,6 +80,7 @@ import { MailModule } from './mail/mail.module';
     CaslModule,
     SchedulingModule,
     MailModule,
+    AdminModule,
   ],
   controllers: [AppController],
   providers: [
