@@ -18,8 +18,9 @@ interface GitHubProfile {
 export class GithubStrategy extends PassportStrategy(Strategy, 'github') {
   constructor(configService: ConfigService) {
     super({
-      clientID: configService.get<string>('GITHUB_CLIENT_ID'),
-      clientSecret: configService.get<string>('GITHUB_CLIENT_SECRET'),
+      clientID: configService.get<string>('GITHUB_CLIENT_ID') || 'unconfigured',
+      clientSecret:
+        configService.get<string>('GITHUB_CLIENT_SECRET') || 'unconfigured',
       callbackURL: configService.get<string>('GITHUB_CALLBACK_URL'),
       scope: ['user:email'],
     });

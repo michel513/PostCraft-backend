@@ -7,6 +7,15 @@ import {
   Logger,
 } from '@nestjs/common';
 import { Request, Response } from 'express';
+import { Prisma } from '@prisma/client';
+
+interface ErrorResponse {
+  statusCode: number;
+  timestamp: string;
+  path: string;
+  method: string;
+  message: string | string[] | object;
+}
 
 @Catch()
 export class AllExceptionsFilter implements ExceptionFilter {
@@ -17,32 +26,61 @@ export class AllExceptionsFilter implements ExceptionFilter {
     const response = ctx.getResponse<Response>();
     const request = ctx.getRequest<Request>();
 
-    const status =
+    let status =
       exception instanceof HttpException
         ? exception.getStatus()
         : HttpStatus.INTERNAL_SERVER_ERROR;
 
-    const message =
-      exception instanceof HttpException
-        ? exception.getResponse()
-        : { message: (exception as Error).message || 'Internal server error' };
+    let message: string | string[] | object = 'Internal server error';
 
-    const errorResponse = {
+    if (exception instanceof HttpException) {
+      const res = exception.getResponse();
+      if (typeof res === 'object' && res !== null && 'message' in res) {
+        message = (res as { message: string | string[] }).message;
+      } else {
+        message = res;
+      }
+    } else if (exception instanceof Error) {
+      message = exception.message;
+    }
+
+    // --- Prisma Specific Handlers ---
+    if (exception instanceof Prisma.PrismaClientKnownRequestError) {
+      switch (exception.code) {
+        case 'P2002': {
+          status = HttpStatus.CONFLICT;
+          const target = (exception.meta?.target as string[]) || [];
+          message = `The ${target.join(', ')} is already in use.`;
+          break;
+        }
+        case 'P2025': {
+          status = HttpStatus.NOT_FOUND;
+          message = exception.message || 'Record not found';
+          break;
+        }
+        default:
+          break;
+      }
+    }
+
+    const errorResponse: ErrorResponse = {
       statusCode: status,
       timestamp: new Date().toISOString(),
       path: request.url,
       method: request.method,
-      error: typeof message === 'string' ? { message } : message,
+      message,
     };
 
     if (status >= 500) {
       this.logger.error(
-        `${request.method} ${request.url} ${status} error: ${JSON.stringify(errorResponse)}`,
-        (exception as Error).stack,
+        `${request.method} ${request.url} ${status} error`,
+        exception instanceof Error
+          ? exception.stack
+          : JSON.stringify(exception),
       );
     } else {
       this.logger.warn(
-        `${request.method} ${request.url} ${status} warning: ${JSON.stringify(errorResponse)}`,
+        `${request.method} ${request.url} ${status} warning: ${JSON.stringify(message)}`,
       );
     }
 

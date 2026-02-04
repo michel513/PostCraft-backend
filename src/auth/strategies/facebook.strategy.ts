@@ -22,8 +22,10 @@ interface FacebookProfile {
 export class FacebookStrategy extends PassportStrategy(Strategy, 'facebook') {
   constructor(configService: ConfigService) {
     super({
-      clientID: configService.get<string>('FACEBOOK_CLIENT_ID'),
-      clientSecret: configService.get<string>('FACEBOOK_CLIENT_SECRET'),
+      clientID:
+        configService.get<string>('FACEBOOK_CLIENT_ID') || 'unconfigured',
+      clientSecret:
+        configService.get<string>('FACEBOOK_CLIENT_SECRET') || 'unconfigured',
       callbackURL: configService.get<string>('FACEBOOK_CALLBACK_URL'),
       scope: ['email', 'public_profile'],
       profileFields: ['id', 'emails', 'name', 'photos'],

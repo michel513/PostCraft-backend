@@ -194,7 +194,7 @@ export class AuthService {
 
     const refreshTokenMatches = await bcrypt.compare(
       refreshToken,
-      user.refreshToken as string,
+      user.refreshToken,
     );
 
     if (!refreshTokenMatches) {
@@ -241,9 +241,9 @@ export class AuthService {
       return this.usersService.update({
         where: { id: user.id },
         data: {
-          googleId: (profile.googleId ?? user.googleId) as string | null,
-          githubId: (profile.githubId ?? user.githubId) as string | null,
-          facebookId: (profile.facebookId ?? user.facebookId) as string | null,
+          googleId: profile.googleId ?? user.googleId,
+          githubId: profile.githubId ?? user.githubId,
+          facebookId: profile.facebookId ?? user.facebookId,
           firstName: profile.firstName ?? user.firstName,
           lastName: profile.lastName ?? user.lastName,
           isEmailVerified: true,
