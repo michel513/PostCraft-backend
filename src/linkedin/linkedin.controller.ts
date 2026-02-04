@@ -1,21 +1,14 @@
-import {
-  Controller,
-  Get,
-  Query,
-  UseGuards,
-  Request,
-  Res,
-} from '@nestjs/common';
+import { Controller, Get, Query, UseGuards, Res } from '@nestjs/common';
 import {
   ApiTags,
   ApiOperation,
   ApiResponse,
   ApiBearerAuth,
-  ApiQuery,
 } from '@nestjs/swagger';
 import { LinkedInService } from './linkedin.service';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { Response } from 'express';
+import { LinkedInCallbackDto } from './dto/linkedin-auth.dto';
 
 @ApiTags('linkedin')
 @Controller('linkedin')
@@ -33,17 +26,13 @@ export class LinkedInController {
 
   @Get('callback')
   @ApiOperation({ summary: 'LinkedIn OAuth callback' })
-  @ApiQuery({ name: 'code', description: 'Authorization code from LinkedIn' })
-  @ApiQuery({ name: 'state', description: 'User ID passed as state' })
   @ApiResponse({
     status: 302,
     description: 'Redirect to frontend success/error page',
   })
-  async callback(
-    @Query('code') code: string,
-    @Query('state') userId: string, // We'll pass userId in state for simplicity in this flow
-    @Res() res: Response,
-  ) {
+  async callback(@Query() query: LinkedInCallbackDto, @Res() res: Response) {
+    const { code, state: userId } = query;
+
     if (!code || !userId) {
       return res.redirect(`${process.env.FRONTEND_URL}/linkedin/error`);
     }

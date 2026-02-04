@@ -19,12 +19,16 @@ import {
 import { PostsService } from './posts.service';
 import { CreatePostDto } from './dto/create-post.dto';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
+import { PoliciesGuard } from '../common/guards/policies.guard';
+import { CheckPolicies } from '../common/guards/policies.decorator';
+import { Action } from '../casl/casl-ability.factory';
+import { Role } from '@prisma/client';
 
 interface RequestWithUser extends Request {
   user: {
     userId: string;
     email: string;
-    role: string;
+    role: Role;
   };
 }
 
@@ -41,17 +45,18 @@ export class PostsController {
     status: 201,
     description: 'Post created and potentially scheduled',
   })
-  create(@Request() req: any, @Body() createPostDto: CreatePostDto) {
-    const userRequest = req as unknown as RequestWithUser;
-    return this.postsService.create(userRequest.user.userId, createPostDto);
+  create(
+    @Request() req: RequestWithUser,
+    @Body() createPostDto: CreatePostDto,
+  ) {
+    return this.postsService.create(req.user.userId, createPostDto);
   }
 
   @Get()
   @ApiOperation({ summary: 'Get all posts for current user' })
   @ApiResponse({ status: 200, description: 'Return list of posts' })
-  findAll(@Request() req: any) {
-    const userRequest = req as unknown as RequestWithUser;
-    return this.postsService.findAll(userRequest.user.userId);
+  findAll(@Request() req: RequestWithUser) {
+    return this.postsService.findAll(req.user.userId);
   }
 
   @Get(':id')
@@ -83,11 +88,12 @@ export class PostsController {
   }
 
   @Post(':id/publish')
+  @UseGuards(PoliciesGuard)
+  @CheckPolicies((ability) => ability.can(Action.Publish, 'Post'))
   @ApiOperation({ summary: 'Publish post to LinkedIn' })
   @ApiParam({ name: 'id', description: 'Post ID' })
   @ApiResponse({ status: 200, description: 'Post published successfully' })
-  publish(@Param('id') id: string, @Request() req: any) {
-    const userRequest = req as unknown as RequestWithUser;
-    return this.postsService.publish(id, userRequest.user.userId);
+  publish(@Param('id') id: string, @Request() req: RequestWithUser) {
+    return this.postsService.publish(id, req.user.userId);
   }
 }

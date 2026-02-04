@@ -1,6 +1,7 @@
 import {
   Controller,
   Get,
+  Patch,
   Body,
   Param,
   UseGuards,
@@ -14,14 +15,17 @@ import {
   ApiParam,
 } from '@nestjs/swagger';
 import { UsersService } from './users.service';
-import { User } from '@prisma/client'; // Fixed import
+import { User, Role } from '@prisma/client';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
+import { RolesGuard } from '../auth/roles.guard';
+import { Roles } from '../auth/roles.decorator';
+import { UpdateUserDto } from './dto/update-user.dto';
 
 interface RequestWithUser extends Request {
   user: {
     userId: string;
     email: string;
-    role: string;
+    role: Role;
   };
 }
 
@@ -35,18 +39,30 @@ export class UsersController {
   @Get('me')
   @ApiOperation({ summary: 'Get current user profile' })
   @ApiResponse({ status: 200, description: 'Return current user details' })
-  getProfile(@Request() req: any) {
-    const userRequest = req as unknown as RequestWithUser;
-    return userRequest.user;
+  async getProfile(@Request() req: RequestWithUser) {
+    return this.usersService.findOne({ id: req.user.userId });
   }
 
-  // @Post()
-  // create(@Body() createUserDto: Prisma.UserCreateInput): Promise<User> {
-  //   return this.usersService.create(createUserDto);
-  // }
+  @UseGuards(JwtAuthGuard)
+  @ApiBearerAuth()
+  @Patch('me')
+  @ApiOperation({ summary: 'Update current user profile' })
+  @ApiResponse({ status: 200, description: 'Profile updated successfully' })
+  async updateProfile(
+    @Request() req: RequestWithUser,
+    @Body() updateUserDto: UpdateUserDto,
+  ) {
+    return this.usersService.update({
+      where: { id: req.user.userId },
+      data: updateUserDto,
+    });
+  }
 
+  @UseGuards(JwtAuthGuard, RolesGuard)
+  @Roles(Role.ADMIN)
+  @ApiBearerAuth()
   @Get()
-  @ApiOperation({ summary: 'Get all users (Admin only ideally)' })
+  @ApiOperation({ summary: 'Get all users (Admin only)' })
   @ApiResponse({ status: 200, description: 'Return list of users' })
   findAll(): Promise<User[]> {
     return this.usersService.findAll();
